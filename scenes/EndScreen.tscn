@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://fonts/pixel12x10/pixel12x10.tres" type="DynamicFont" id=2]
+[ext_resource path="res://textures/Transition.png" type="Texture" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Sprite" parent="Control"]
+position = Vector2( 180, 120 )
+texture = ExtResource( 3 )
+
+[node name="Interaction_Prompt" type="RichTextLabel" parent="Control"]
+visible = false
+margin_top = 82.0
+margin_right = 360.0
+margin_bottom = 178.0
+rect_clip_content = false
+theme = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[wave][center]You escaped.
+
+Thank you for playing.[/center][/wave]"
+text = "You escaped.
+
+Thank you for playing."
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="TransitionSprite" type="Sprite" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 180, 120 )
+texture = ExtResource( 3 )
+
+[node name="Transition_AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )

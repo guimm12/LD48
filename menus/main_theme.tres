@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://fonts/pixel12x10/pixel12x10.tres" type="DynamicFont" id=1]
+[ext_resource path="res://textures/trans_shadow_rect.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 3.98388
+margin_right = 3.98388
+margin_top = 4.2409
+margin_bottom = 3.98388
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 3.98388
+margin_right = 3.98388
+margin_top = 4.2409
+margin_bottom = 3.98388
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 3.98388
+margin_right = 3.98388
+margin_top = 4.2409
+margin_bottom = 3.98388
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 3.98388
+margin_right = 3.98388
+margin_top = 4.0
+margin_bottom = 3.98388
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 1 )
+Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 3 )
+Panel/styles/panel = SubResource( 4 )
+PanelContainer/styles/panel = SubResource( 4 )

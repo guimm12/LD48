@@ -1,0 +1,400 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://fonts/pixel12x10/pixel12x10.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/Player_Plataformer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/2d_Main.gd" type="Script" id=3]
+[ext_resource path="res://textures/Transition.png" type="Texture" id=4]
+[ext_resource path="res://textures/tv_2d.png" type="Texture" id=5]
+[ext_resource path="res://scenes/2d_Level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/tree.png" type="Texture" id=8]
+[ext_resource path="res://textures/Key2d.png" type="Texture" id=9]
+[ext_resource path="res://scenes/Key.gd" type="Script" id=10]
+[ext_resource path="res://textures/Computer/computer12.png" type="Texture" id=11]
+[ext_resource path="res://textures/Computer/computer14.png" type="Texture" id=12]
+[ext_resource path="res://textures/Computer/computer10.png" type="Texture" id=13]
+[ext_resource path="res://textures/Computer/computer13.png" type="Texture" id=14]
+[ext_resource path="res://textures/Computer/computer9.png" type="Texture" id=15]
+[ext_resource path="res://textures/Computer/computer11.png" type="Texture" id=16]
+[ext_resource path="res://textures/Computer/computer8.png" type="Texture" id=17]
+[ext_resource path="res://textures/Computer/computer16.png" type="Texture" id=18]
+[ext_resource path="res://textures/Computer/computer17.png" type="Texture" id=19]
+[ext_resource path="res://textures/Computer/computer18.png" type="Texture" id=20]
+[ext_resource path="res://textures/Computer/computer15.png" type="Texture" id=21]
+[ext_resource path="res://textures/Computer/computer5.png" type="Texture" id=22]
+[ext_resource path="res://textures/Computer/computer6.png" type="Texture" id=23]
+[ext_resource path="res://textures/Computer/computer7.png" type="Texture" id=24]
+[ext_resource path="res://textures/Computer/computer1.png" type="Texture" id=25]
+[ext_resource path="res://textures/Computer/computer2.png" type="Texture" id=26]
+[ext_resource path="res://textures/Computer/computer3.png" type="Texture" id=27]
+[ext_resource path="res://textures/Computer/computer4.png" type="Texture" id=28]
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Loop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "TurnOn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Off",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 24, 16 )
+
+[sub_resource type="Gradient" id=20]
+offsets = PoolRealArray( 0, 0.637131, 1 )
+colors = PoolColorArray( 0.811765, 0.776471, 0.721569, 1, 0.811765, 0.776471, 0.721569, 1, 0.827451, 0.792157, 0.741176, 0 )
+
+[sub_resource type="GradientTexture" id=21]
+gradient = SubResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=19]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 50, 1 )
+flag_disable_z = true
+spread = 60.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 94.2
+initial_velocity_random = 0.5
+angular_velocity = 10.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 1.0
+color_ramp = SubResource( 21 )
+
+[sub_resource type="ParticlesMaterial" id=22]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 50, 1 )
+flag_disable_z = true
+spread = 60.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 400.0
+initial_velocity_random = 1.0
+angular_velocity = 15.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 1.0
+color_ramp = SubResource( 21 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 24, 120 )
+
+[sub_resource type="Animation" id=32]
+resource_name = "Camera_Normal"
+
+[sub_resource type="Animation" id=31]
+resource_name = "Computer_Transition"
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Control/Transition_AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "FadeIn" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "TV"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TV:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 1024, 24 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 13, 16 )
+
+[sub_resource type="RectangleShape2D" id=26]
+
+[sub_resource type="Animation" id=28]
+resource_name = "TransitionBack"
+tracks/0/type = "animation"
+tracks/0/path = NodePath("../Control/Transition_AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "FadeIn" ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Player_Plataformer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "sleep"
+} ]
+}
+
+[sub_resource type="Theme" id=15]
+default_font = ExtResource( 1 )
+
+[sub_resource type="Animation" id=16]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Main" type="Node2D"]
+pause_mode = 2
+position = Vector2( 176, 96 )
+script = ExtResource( 3 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="World"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="World/ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="background" type="Sprite" parent="World/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 1.52588e-05, 0 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+
+[node name="Computer" type="Node2D" parent="World"]
+position = Vector2( 1144, 32 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="World/Computer"]
+position = Vector2( 96, -8 )
+frames = SubResource( 29 )
+animation = "Off"
+speed_scale = 2.5
+
+[node name="ComputerArea2D" type="Area2D" parent="World/Computer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Computer/ComputerArea2D"]
+position = Vector2( 64, 0 )
+shape = SubResource( 30 )
+
+[node name="Particles2D" type="Particles2D" parent="World"]
+position = Vector2( -152, 0 )
+amount = 30
+lifetime = 3.0
+randomness = 0.3
+process_material = SubResource( 19 )
+
+[node name="Particles2D2" type="Particles2D" parent="World"]
+position = Vector2( 896, 168 )
+rotation = -1.5708
+amount = 30
+lifetime = 3.0
+randomness = 0.3
+process_material = SubResource( 19 )
+
+[node name="Particles2D4" type="Particles2D" parent="World"]
+position = Vector2( 256, 160 )
+rotation = -1.74533
+amount = 30
+lifetime = 3.0
+randomness = 0.3
+process_material = SubResource( 19 )
+
+[node name="Particles2D3" type="Particles2D" parent="World"]
+position = Vector2( 576, -104 )
+rotation = 1.39626
+amount = 30
+lifetime = 3.0
+randomness = 0.3
+process_material = SubResource( 19 )
+
+[node name="Particles2D5" type="Particles2D" parent="World"]
+position = Vector2( 1120, -120 )
+rotation = 1.39626
+amount = 30
+lifetime = 3.0
+randomness = 0.3
+process_material = SubResource( 19 )
+
+[node name="Particles2D_explosion" type="Particles2D" parent="World"]
+position = Vector2( -152, 0 )
+emitting = false
+amount = 100
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.3
+process_material = SubResource( 22 )
+
+[node name="Player_Plataformer" parent="World" instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( -168, 1.90735e-06 )
+
+[node name="TV" type="Sprite" parent="World"]
+position = Vector2( -136, 24 )
+texture = ExtResource( 5 )
+hframes = 3
+
+[node name="TV_Area" type="Area2D" parent="World/TV"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/TV/TV_Area"]
+position = Vector2( -32, 0 )
+shape = SubResource( 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World"]
+anims/Camera_Normal = SubResource( 32 )
+anims/Computer_Transition = SubResource( 31 )
+anims/TV = SubResource( 18 )
+
+[node name="2d_Level" parent="World" instance=ExtResource( 6 )]
+position = Vector2( -176, -96 )
+
+[node name="Spawn" type="Position2D" parent="World"]
+position = Vector2( -40, 0 )
+
+[node name="KillZone" type="Area2D" parent="World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillZone"]
+position = Vector2( 728, 200 )
+shape = SubResource( 23 )
+
+[node name="Spikes" type="Node2D" parent="World"]
+
+[node name="Spike" parent="World/Spikes" instance=ExtResource( 7 )]
+position = Vector2( 728, 56 )
+
+[node name="Spike4" parent="World/Spikes" instance=ExtResource( 7 )]
+position = Vector2( 408, 72 )
+
+[node name="Spike2" parent="World/Spikes" instance=ExtResource( 7 )]
+position = Vector2( 744, 56 )
+
+[node name="Spike3" parent="World/Spikes" instance=ExtResource( 7 )]
+position = Vector2( 760, 72 )
+
+[node name="Spike5" parent="World/Spikes" instance=ExtResource( 7 )]
+position = Vector2( 776, 56 )
+
+[node name="Tree" type="Node2D" parent="World"]
+position = Vector2( 960, 32 )
+
+[node name="Sprite" type="Sprite" parent="World/Tree"]
+texture = ExtResource( 8 )
+
+[node name="Tree_Area2D" type="Area2D" parent="World/Tree"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tree/Tree_Area2D"]
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/Tree"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tree/StaticBody2D"]
+shape = SubResource( 25 )
+
+[node name="Key" type="Node2D" parent="World"]
+position = Vector2( 584, 117 )
+script = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="World/Key"]
+texture = ExtResource( 9 )
+hframes = 2
+frame = 1
+
+[node name="Area2D" type="Area2D" parent="World/Key"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Key/Area2D"]
+shape = SubResource( 26 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="World"]
+anims/TransitionBack = SubResource( 28 )
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Interaction_Prompt" type="RichTextLabel" parent="Control"]
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 240.0
+rect_clip_content = false
+theme = SubResource( 15 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="TransitionSprite" type="Sprite" parent="Control"]
+position = Vector2( 180, 120 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 4 )
+
+[node name="Transition_AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/FadeIn = SubResource( 16 )
+anims/FadeOut = SubResource( 17 )
+[connection signal="body_entered" from="World/Computer/ComputerArea2D" to="." method="_on_ComputerArea2D_body_entered"]
+[connection signal="body_exited" from="World/Computer/ComputerArea2D" to="." method="_on_ComputerArea2D_body_exited"]
+[connection signal="body_entered" from="World/TV/TV_Area" to="." method="_on_TV_Area_body_entered"]
+[connection signal="body_entered" from="World/KillZone" to="." method="_on_KillZone_body_entered"]
+[connection signal="body_entered" from="World/Spikes/Spike" to="." method="_on_Spike_body_entered"]
+[connection signal="body_entered" from="World/Spikes/Spike4" to="." method="_on_Spike_body_entered"]
+[connection signal="body_entered" from="World/Spikes/Spike2" to="." method="_on_Spike_body_entered"]
+[connection signal="body_entered" from="World/Spikes/Spike3" to="." method="_on_Spike_body_entered"]
+[connection signal="body_entered" from="World/Spikes/Spike5" to="." method="_on_Spike_body_entered"]
+[connection signal="body_entered" from="World/Tree/Tree_Area2D" to="." method="_on_Tree_Area2D_body_entered"]
+[connection signal="body_exited" from="World/Tree/Tree_Area2D" to="." method="_on_Tree_Area2D_body_exited"]
+[connection signal="body_entered" from="World/Key/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="World/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]

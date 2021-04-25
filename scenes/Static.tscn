@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://textures/Transition.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Static.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float amount = 40.0;
+
+void fragment()
+{
+	vec2 uv = UV*0.05;
+	float a = fract(sin(dot(UV, vec2(12.9898, 78.233)*TIME)) * 438.5453)*1.9;
+	vec4 col = texture(TEXTURE, UV);
+	col.a *= pow(a, amount);
+	COLOR.a = col.a;
+}"
+custom_defines = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/amount = 40.0
+
+[node name="Static" type="Sprite"]
+material = SubResource( 2 )
+position = Vector2( -104, 80 )
+scale = Vector2( 0.106814, 0.16788 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

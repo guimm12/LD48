@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/return_player_racingt.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player_Racing.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.274262, 1 )
+colors = PoolColorArray( 0.25098, 0.211765, 0.235294, 0, 0.231373, 0.184314, 0.211765, 1, 0.231373, 0.184314, 0.211765, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 5.0
+gravity = Vector3( 0, -15, 0 )
+initial_velocity = -100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6, 4 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -15, 0 )
+initial_velocity = -10.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 8.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[node name="Player_Racing" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -5, 0 )
+amount = 13
+local_coords = false
+process_material = SubResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )
+
+[node name="Smoke" type="Particles2D" parent="."]
+position = Vector2( 0, -4 )
+amount = 20
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 5 )
+__meta__ = {
+"_editor_description_": ""
+}

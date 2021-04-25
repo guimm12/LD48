@@ -1,0 +1,431 @@
+[gd_scene load_steps=59 format=2]
+
+[ext_resource path="res://textures/road_animation/road_anim32.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Return_Player_Racing.tscn" type="PackedScene" id=2]
+[ext_resource path="res://textures/road_animation/road_anim3.png" type="Texture" id=3]
+[ext_resource path="res://textures/road_animation/road_anim2.png" type="Texture" id=4]
+[ext_resource path="res://textures/road_animation/road_anim4.png" type="Texture" id=5]
+[ext_resource path="res://textures/road_animation/road_anim1.png" type="Texture" id=6]
+[ext_resource path="res://textures/road_animation/road_anim5.png" type="Texture" id=7]
+[ext_resource path="res://textures/road_animation/road_anim7.png" type="Texture" id=8]
+[ext_resource path="res://textures/road_animation/road_anim8.png" type="Texture" id=9]
+[ext_resource path="res://textures/road_animation/road_anim9.png" type="Texture" id=10]
+[ext_resource path="res://textures/road_animation/road_anim6.png" type="Texture" id=11]
+[ext_resource path="res://textures/road_animation/road_anim14.png" type="Texture" id=12]
+[ext_resource path="res://textures/road_animation/road_anim15.png" type="Texture" id=13]
+[ext_resource path="res://textures/road_animation/road_anim16.png" type="Texture" id=14]
+[ext_resource path="res://textures/road_animation/road_anim18.png" type="Texture" id=15]
+[ext_resource path="res://textures/road_animation/road_anim11.png" type="Texture" id=16]
+[ext_resource path="res://textures/road_animation/road_anim20.png" type="Texture" id=17]
+[ext_resource path="res://textures/road_animation/road_anim21.png" type="Texture" id=18]
+[ext_resource path="res://textures/road_animation/road_anim23.png" type="Texture" id=19]
+[ext_resource path="res://textures/road_animation/road_anim17.png" type="Texture" id=20]
+[ext_resource path="res://textures/road_animation/road_anim12.png" type="Texture" id=21]
+[ext_resource path="res://textures/road_animation/road_anim24.png" type="Texture" id=22]
+[ext_resource path="res://textures/road_animation/road_anim22.png" type="Texture" id=23]
+[ext_resource path="res://textures/road_animation/road_anim25.png" type="Texture" id=24]
+[ext_resource path="res://textures/road_animation/road_anim26.png" type="Texture" id=25]
+[ext_resource path="res://textures/road_animation/road_anim27.png" type="Texture" id=26]
+[ext_resource path="res://textures/road_animation/road_anim28.png" type="Texture" id=27]
+[ext_resource path="res://textures/road_animation/road_anim29.png" type="Texture" id=28]
+[ext_resource path="res://textures/road_animation/road_anim19.png" type="Texture" id=29]
+[ext_resource path="res://textures/road_animation/road_anim10.png" type="Texture" id=30]
+[ext_resource path="res://textures/road_animation/road_anim13.png" type="Texture" id=31]
+[ext_resource path="res://textures/road_animation/road_anim31.png" type="Texture" id=32]
+[ext_resource path="res://textures/road_animation/road_anim30.png" type="Texture" id=33]
+[ext_resource path="res://scenes/Return_Race_Main.gd" type="Script" id=34]
+[ext_resource path="res://textures/Transition2.png" type="Texture" id=35]
+[ext_resource path="res://scenes/Static.tscn" type="PackedScene" id=36]
+[ext_resource path="res://fonts/pixel12x10/pixel12x10.tres" type="DynamicFont" id=39]
+[ext_resource path="res://textures/Transition.png" type="Texture" id=40]
+[ext_resource path="res://scenes/TV.gd" type="Script" id=41]
+[ext_resource path="res://textures/TV_Truck.png" type="Texture" id=42]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 21 ), ExtResource( 31 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 32 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Scrolling",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 195, 17 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 19 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 32 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.274262, 1 )
+colors = PoolColorArray( 0.25098, 0.211765, 0.235294, 0, 0.231373, 0.184314, 0.211765, 1, 0.231373, 0.184314, 0.211765, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 20, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -15, 0 )
+initial_velocity = -10.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 8.0
+scale_random = 1.0
+color_ramp = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -15, 0 )
+initial_velocity = -10.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 8.0
+scale_random = 1.0
+color_ramp = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 5, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+gravity = Vector3( 0, -15, 0 )
+initial_velocity = -10.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 5.0
+scale_random = 1.0
+color_ramp = SubResource( 6 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "TruckTvStatic"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TV_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1.43936e-08, 1.43936e-08, 1.43936e-08 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "TvOff"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("TV_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 2.00486e-07 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Camera_Normal"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "TV_Truck_Transition"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1.93187 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.6, 0.6 ) ]
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("../../Control/Transition_AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "FadeIn" ),
+"times": PoolRealArray( 1.5 )
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "TruckTvStatic"
+length = 0.3
+loop = true
+
+[sub_resource type="Animation" id=15]
+resource_name = "TvOff"
+length = 0.1
+
+[sub_resource type="Theme" id=16]
+default_font = ExtResource( 39 )
+
+[sub_resource type="Animation" id=17]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Race_Main" type="Node2D"]
+position = Vector2( 360, 120 )
+scale = Vector2( -1, 1 )
+script = ExtResource( 34 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite" parent="World"]
+position = Vector2( 180, 0 )
+texture = ExtResource( 35 )
+
+[node name="Road" type="AnimatedSprite" parent="World"]
+position = Vector2( 180, 0 )
+frames = SubResource( 1 )
+animation = "Scrolling"
+frame = 19
+speed_scale = 30.0
+playing = true
+
+[node name="Road_Wall" type="StaticBody2D" parent="World/Road"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Road/Road_Wall"]
+position = Vector2( 0, -40 )
+shape = SubResource( 2 )
+
+[node name="Road_Wall2" type="StaticBody2D" parent="World/Road"]
+position = Vector2( 1.52588e-05, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Road/Road_Wall2"]
+position = Vector2( 0, 40 )
+shape = SubResource( 2 )
+
+[node name="Obstacles" type="Node2D" parent="World"]
+
+[node name="TV" type="KinematicBody2D" parent="World"]
+position = Vector2( 7616, 0 )
+script = ExtResource( 41 )
+
+[node name="TV_Sprite" type="Sprite" parent="World/TV"]
+texture = ExtResource( 42 )
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/TV"]
+position = Vector2( 2, 0 )
+shape = SubResource( 3 )
+
+[node name="TV_Area" type="Area2D" parent="World/TV"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/TV/TV_Area"]
+position = Vector2( -21, 0 )
+shape = SubResource( 4 )
+
+[node name="SmokeTV1" type="Particles2D" parent="World/TV"]
+position = Vector2( -24, -8 )
+emitting = false
+amount = 70
+lifetime = 2.0
+process_material = SubResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SmokeTV2" type="Particles2D" parent="World/TV"]
+position = Vector2( 24, -16 )
+emitting = false
+amount = 50
+lifetime = 2.0
+process_material = SubResource( 8 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SmokeTV3" type="Particles2D" parent="World/TV"]
+position = Vector2( 0, -8 )
+emitting = false
+amount = 20
+lifetime = 2.0
+process_material = SubResource( 9 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TV_AnimationPlayer" type="AnimationPlayer" parent="World/TV"]
+anims/TruckTvStatic = SubResource( 10 )
+anims/TvOff = SubResource( 11 )
+
+[node name="TV_Transition_AnimationPlayer" type="AnimationPlayer" parent="World/TV"]
+anims/Camera_Normal = SubResource( 12 )
+anims/TV_Truck_Transition = SubResource( 13 )
+anims/TruckTvStatic = SubResource( 14 )
+anims/TvOff = SubResource( 15 )
+
+[node name="Player_Racing" parent="." instance=ExtResource( 2 )]
+position = Vector2( 70, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 180, 0 )
+current = true
+
+[node name="Control" type="CanvasLayer" parent="."]
+
+[node name="Interaction_Prompt" type="RichTextLabel" parent="Control"]
+margin_top = 192.0
+margin_right = 360.0
+margin_bottom = 240.0
+rect_clip_content = false
+theme = SubResource( 16 )
+custom_fonts/normal_font = ExtResource( 39 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="TransitionSprite" type="Sprite" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 180, 120 )
+texture = ExtResource( 40 )
+
+[node name="Transition_AnimationPlayer" type="AnimationPlayer" parent="Control"]
+anims/FadeIn = SubResource( 17 )
+anims/FadeOut = SubResource( 18 )
+
+[node name="Statics" type="Node2D" parent="."]
+
+[node name="Static" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 40.0001, 105.26 )
+scale = Vector2( 0.225806, 0.152131 )
+
+[node name="Static17" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 91, 97 )
+scale = Vector2( 0.228928, 0.0179076 )
+
+[node name="Static18" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 53, 69 )
+scale = Vector2( 0.103028, 0.0147862 )
+
+[node name="Static2" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 80, 104 )
+scale = Vector2( 0.116438, 0.070761 )
+
+[node name="Static3" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 35.7478, 87.717 )
+scale = Vector2( 0.0665663, 0.0878223 )
+
+[node name="Static4" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 0, 48 )
+scale = Vector2( 0.0665663, 0.0878223 )
+
+[node name="Static5" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 5.48016, 58.9603 )
+scale = Vector2( 0.0805653, 0.0458249 )
+
+[node name="Static6" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 6.42508, 77.0077 )
+scale = Vector2( 0.0446928, 0.036638 )
+
+[node name="Static7" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 5.48017, -20.8502 )
+scale = Vector2( 0.113813, 0.0458249 )
+
+[node name="Static8" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 1, -12 )
+scale = Vector2( 0.0438176, 0.0484498 )
+
+[node name="Static9" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 33, -110 )
+scale = Vector2( 0.228431, 0.0996341 )
+
+[node name="Static10" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 58, -98 )
+scale = Vector2( 0.049942, 0.112758 )
+
+[node name="Static11" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 92.0218, -108.867 )
+scale = Vector2( 0.210932, 0.0222014 )
+
+[node name="Static12" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 87.5211, -122.59 )
+scale = Vector2( 0.0858148, 0.0589491 )
+
+[node name="Static13" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 8.00012, -94 )
+scale = Vector2( 0.0858148, 0.0589491 )
+
+[node name="Static14" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 2, -32 )
+scale = Vector2( 0.0700563, 0.0519968 )
+
+[node name="Static15" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( 9.49038, -79.8388 )
+scale = Vector2( 0.117332, 0.0116736 )
+
+[node name="Static16" parent="Statics" instance=ExtResource( 36 )]
+position = Vector2( -1.67193, -86.0068 )
+scale = Vector2( 0.1025, 0.0408732 )
+[connection signal="body_entered" from="World/TV/TV_Area" to="World/TV" method="_on_TV_Area_body_entered"]
+[connection signal="animation_finished" from="World/TV/TV_Transition_AnimationPlayer" to="World/TV" method="_on_TV_Transition_AnimationPlayer_animation_finished"]
